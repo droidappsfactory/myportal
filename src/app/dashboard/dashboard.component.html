@@ -1,0 +1,30 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+<mat-sidenav-container class="example-sidenav-container" (backdropClick)="closeBackDrop()" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+  <mat-sidenav #snav [opened]="sideNavToggle" [mode]="mobileQuery.matches ? 'over' : 'over'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    <mat-nav-list>
+     
+      <mat-list-item *ngFor="let navItem of sideNavItems" (click)="navItemClicked(navItem.link)">
+        <mat-icon mat-list-icon class="listitemicon">{{navItem.icon}}</mat-icon>
+        <h4 mat-line>{{navItem.label}}</h4>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+     
+    
+    </mat-nav-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+    <div *ngIf="show" id="chatwindow">
+        <button mat-icon-button color="accent">
+            <mat-icon (click)="toggleChatBox()">close</mat-icon>
+          </button>
+      <chatbox></chatbox>
+    </div>
+    <button *ngIf="!show" mat-fab class="fab-container" color="primary" (click)="toggleChatBox()"><mat-icon>chat</mat-icon></button>
+  </mat-sidenav-content>
+ 
+</mat-sidenav-container>
+
+</div>

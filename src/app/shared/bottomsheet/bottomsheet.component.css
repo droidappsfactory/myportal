@@ -1,0 +1,15 @@
+.compdiv{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+header{
+    padding: 6px;
+    font-size: 1.4em;
+    min-height:40px;
+    text-align: left;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
