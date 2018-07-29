@@ -4,12 +4,14 @@ import { AndroidComponent } from './android/android.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeComponent } from './home/home.component';
 import { AngularComponent } from './angular/angular.component';
+import { ContactmeComponent } from './contactme/contactme.component';
 
 
 
 const appRoutes: Routes = [
   { path: 'android', component: AndroidComponent },
   { path: 'angular', component:AngularComponent },
+  { path: 'contactme', component:ContactmeComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: PagenotfoundComponent }
 ];

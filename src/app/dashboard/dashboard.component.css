@@ -27,20 +27,20 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
-  .fab-container{
+  /* .fab-container{
     position: fixed;
     bottom: 15px;
     right: 35px;
-  }
+  } */
 
-  #chatwindow{
+  /* #chatwindow{
     position: fixed;
     bottom: 15px;
     right: 35px;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-  }
+  } */
 
   mat-card-header{
     background-color: #673AB7;

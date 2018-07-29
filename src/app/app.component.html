@@ -1,3 +1,15 @@
-
 <app-toolbar></app-toolbar>
-<app-dashboard ></app-dashboard>
+<app-dashboard></app-dashboard>
+
+<div>
+    <div class="chatwindow" *ngIf="!show">
+
+        <chatbot [show]="show" (showChanged)="openChat($event)"></chatbot>
+
+
+    </div>
+
+    <button *ngIf="show" class="fabbutton" mat-fab color="primary" (click)="openChat(show)">
+        <mat-icon aria-label="Example icon-button with a heart icon">message</mat-icon>
+    </button>
+</div>

@@ -18,11 +18,13 @@ import { AndroidtopicsComponent } from './android/androidtopics/androidtopics.co
 import { AndroidrolesComponent } from './android/androidroles/androidroles.component';
 import { AngularComponent } from './angular/angular.component';
 import { AndroidscreensComponent } from './android/androidscreens/androidscreens.component';
-import { ChatboxComponent } from './shared/chatbox/chatbox.component';
 import { BottomsheetComponent } from './shared/bottomsheet/bottomsheet.component';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
-
-
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { AngularFireModule } from 'angularfire2';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,9 @@ import { SnackbarComponent } from './shared/snackbar/snackbar.component';
     AndroidrolesComponent,
     AngularComponent,
     AndroidscreensComponent,
-    ChatboxComponent,
     BottomsheetComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    ChatbotComponent
   ],
   imports: [
     MatSnackBarModule,
@@ -54,13 +56,15 @@ import { SnackbarComponent } from './shared/snackbar/snackbar.component';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   entryComponents:[BottomsheetComponent,SnackbarComponent],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,28 @@
+<header class="mat-elevation-z1">
+  <span>Frank</span>
+  <mat-icon (click)="openChat()">close</mat-icon>
+</header>
+<section #chatMsgDiv>
+
+  <div class="chatDiv" *ngFor="let message of messages">
+
+    
+
+    <div class="mat-elevation-z2" [ngClass]="{'botMsgDiv': message.name=='Bot', 'userMsgDiv': message.name!='Bot'}">
+        <img [src]="message.name === 'Bot' ? 'assets/chatboticon.png' : 'assets/usericon.png'" width="20px" height="20px">
+      <!-- <div class="chatName" [ngStyle]="{'text-align':message.name === 'Bot' ? 'left' : 'right' }" > {{message.name}}</div> -->
+    <div class="chatMsg" [ngStyle]="{'text-align':message.name === 'Bot' ? 'left' : 'right' }" [innerHtml]="message.data"></div>
+    </div>
+
+    <div class="timetext" [ngStyle]="{'float':message.name === 'Bot' ? 'left' : 'right' }">{{message.time|date :'mediumTime'}}</div>
+
+  </div>
+
+
+</section>
+<footer class="mat-elevation-z1">
+  <input class="inputtxt" #searchtxt placeholder="Type Here" (keyup.enter)="messageEntered(searchtxt.value);searchtxt.value=''">
+
+  <mat-icon color=primary class="sendbutton" mat-button (click)="messageEntered(searchtxt.value);searchtxt.value=''">send</mat-icon>
+
+</footer>

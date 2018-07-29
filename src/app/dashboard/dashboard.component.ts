@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     },{
       label: 'Angular', link: 'angular',icon :'home'
     },{
-      label: 'MEAN Stack', link: 'meanstack',icon :''
+      label: 'Contact Me', link: 'contactme',icon :''
     }]
   }
 

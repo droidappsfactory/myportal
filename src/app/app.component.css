@@ -1,25 +1,39 @@
-app-root{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 58px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0px;
-    padding: 0px;
-   
-    
+.fabbutton{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 998;
 }
 
-app-toolbar {
+.chatwindow{
+    height: 400px;
+    width: 300px;
+    background-color: whitesmoke;
+    z-index: 999;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-  }
-
-  app-dashboard{
-    overflow-y: auto;
-  }
+    flex: 10;
+    padding: 0px;
+    margin: 0px;
+    bottom: 40px;
+    right: 40px;
+    box-sizing: border-box;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+@media only screen and (max-width: 600px) {
+    .chatwindow{
+        height: 400px;
+        width: 100%;
+        background-color: whitesmoke;
+        z-index: 999;
+        position: fixed;
+        flex: 10;
+        padding: 0px;
+        margin: 0px 0px 26px 0px;
+        bottom: 0px;
+        right: 0px;
+        box-sizing: border-box;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+}

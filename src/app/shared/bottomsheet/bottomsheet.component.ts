@@ -2,19 +2,24 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { MatBottomSheetRef, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
 import { SnackbarComponent } from '../snackbar/snackbar.component';
-
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'bottomsheet',
   templateUrl: './bottomsheet.component.html',
   styleUrls: ['./bottomsheet.component.css']
 })
-export class BottomsheetComponent {
+export class BottomsheetComponent implements OnInit{
+  ngOnInit(): void {
+    this.initcontactmeForm();
+  }
+ 
 
   contactmeForm:FormGroup;
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<BottomsheetComponent>,private fb: FormBuilder,public snackBar: MatSnackBar) {
-    this.initcontactmeForm();
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomsheetComponent>,private fb: FormBuilder,public snackBar: MatSnackBar,
+    private db: AngularFirestore) {
+    
   }
 
 
@@ -40,6 +45,8 @@ export class BottomsheetComponent {
     this.snackBar.openFromComponent(SnackbarComponent, {
       duration: 500,
     });
+
+    this.db.collection('contactme').add({"name":this.contactmeForm.value.name,"email":this.contactmeForm.value.email,"comments":this.contactmeForm.value.comments})
    
     
   }
